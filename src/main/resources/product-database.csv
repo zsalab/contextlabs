@@ -1,0 +1,7 @@
+"Name","Type","Color","Price","Quantity","Weight","Available"
+"ProdOne","Furniture","RED","20.4","12","20","true"
+"ProdTwo","Tools","WHITE","50","150","1","true"
+"ProdThree","Food",,"2.23","200","0.1","true"
+"ProdFour","Furniture",BLUE,"30.2","20","5","false"
+"Prod55555","Tools",BLUE,"15.7","2000","5.6","true"
+"Prod77777","Tools",RED,"52.5","800","5.6","true"

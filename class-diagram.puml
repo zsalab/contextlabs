@@ -1,0 +1,88 @@
+@startuml
+
+enum ProductAttribute {
+ 	NAME
+ 	TYPE
+ 	COLOR
+ 	PRICE
+ 	QUANTITY
+ 	WEIGHT
+ 	AVAILABLE
+}
+
+class Product {
+ 	Integer id
+ 	Map<ProductAttribute,Attribute> attributes
+}
+
+abstract class Attribute {
+ 	Integer id
+}
+
+class StringAttribute {
+ 	String value
+}
+
+class NumberAttribute {
+ 	BigDecimal value
+}
+
+class IntegerAttribute {
+ 	Integer value
+}
+
+class BooleanAttribute {
+ 	Boolean value
+}
+
+class EnumAttribute {
+ 	Enum value
+}
+
+Product "1" *-- "many" Attribute
+Attribute <|-- StringAttribute
+Attribute <|-- NumberAttribute
+Attribute <|-- IntegerAttribute
+Attribute <|-- BooleanAttribute
+Attribute <|-- EnumAttribute
+
+ProductAttribute -> Product
+
+class Rule {
+	Integer score
+	Map<ProductAttribute,Condition> conditions
+}
+
+class Condition {
+	Attribute attribute
+	Operators operator
+}
+
+enum Operators {
+ 	NE
+ 	EQ
+ 	LT
+ 	LE
+ 	GT
+ 	GE
+}
+
+ProductAttribute -> Rule
+Condition *--  Attribute
+Rule "1" *-- "many" Condition
+Operators -> Condition
+
+class ScoreResult {
+	Map<Product,Float> productScores
+	BigDecimal totalPrice
+	BigDecimal averagePrice
+}
+
+class ScoringService {
+	ScoreResult scoreProducts()
+}
+
+Product --> ScoreResult
+ScoreResult --> ScoringService
+
+@enduml

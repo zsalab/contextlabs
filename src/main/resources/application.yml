@@ -1,0 +1,11 @@
+products-csv: classpath:product-database.csv
+# one rule one line
+rules-file: classpath:rules.txt
+
+# The minimum score summary of the product to consider as match
+product-score-threshold: 75
+
+# Ignore every rule if the rate of the condition matched below of this value
+# 0 any confition of the rule match counts
+# 100 only if all conditions of the rule matches 
+single-rule-score-threshold-precent: 50

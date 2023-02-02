@@ -1,0 +1,3 @@
+color == BLUE && price < 17.75 && quantity > 750 -> 100
+color != BLUE && price < 17.75 && quantity > 750 -> -15
+quantity > 1000 -> -10
